@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meets</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <% if user_signed_in? %>
+  ログイン中　ログアウトはリンクをクリック！
+  <%= link_to('ログアウト', destroy_user_session_path, method: :delete) %>
+  <% else %>
+  ログインしていないので、ログインしてください
+  <%= link_to("ログイン", new_user_session_path) %>
+  
+
+  <% end %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
