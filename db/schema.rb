@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616132107) do
+ActiveRecord::Schema.define(version: 20170618065128) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "freetime_id", limit: 4
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20170616132107) do
   end
 
   create_table "freetimes", force: :cascade do |t|
-    t.integer  "owner_id",   limit: 4
+    t.integer  "user_id",    limit: 4
     t.integer  "client_id",  limit: 4
     t.datetime "time"
     t.string   "place",      limit: 255
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20170616132107) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.string   "name",                   limit: 255
+    t.string   "comment",                limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

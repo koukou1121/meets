@@ -1,17 +1,21 @@
 <!DOCTYPE html>
+application.html.erbの内容</br>
 <html>
 <head>
+<%= stylesheet_link_tag    "bootstrap", media: "all", "data-turbolinks-track" => true %>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  
   <title>Meets</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <% if user_signed_in? %>
-  ログイン中　ログアウトはリンクをクリック！
+  user: <%= link_to "#{current_user.name}", :controller => "users", :action => "index" %> ログイン中｜ログアウトは左のリンクをクリック！ 
   <%= link_to('ログアウト', destroy_user_session_path, method: :delete) %>
   <% else %>
   ログインしていないので、ログインしてください
   <%= link_to("ログイン", new_user_session_path) %>
-  
+
 
   <% end %>
 </head>
