@@ -1,0 +1,28 @@
+</br>
+場所と時刻を入力すると、他ユーザーが登録したfreetimeを検索できます</br>
+リスト表示をクリックすると登録されているfreetimeを最新順で表示します</br>
+<%= search_form_for(@search, url: 'search', method: 'get') do |f| %>
+    <div class="form-group"></br>
+    場所で検索→
+    <%= f.label :place_cont, '場所' %>
+    <%= f.text_field :place_cont, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+    <%= f.label :time_gteq, 'いつからいつまで？' %>
+    <div>
+    <%= f.datetime_select :time_gteq, prompt: true %></br>
+    </div>
+    </div>
+    <%= f.submit '検索', class: 'btn btn-default' %>
+<% end %>
+
+</br>
+検索結果</br>
+</br>
+<% @results.each do |result| %>
+  場所：<%= result.place %></br>
+  時間：<%= result.time %></br>
+  登録者：<%= link_to "#{result.user.name}", "/users/show/#{result.user_id}", method: :get %></br>
+  ================================</br>
+<% end %>
+
