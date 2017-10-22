@@ -1,7 +1,11 @@
 </br>
+<div class="page-header">
+<h1 style="background:#f9f9f9; ">フレンドを探す</h1></div>
+</br>
 場所と時刻を入力すると、他ユーザーが登録したfreetimeを検索できます</br>
 リスト表示をクリックすると登録されているfreetimeを最新順で表示します</br>
 <%= search_form_for(@search, url: 'search', method: 'get') do |f| %>
+    <div class="container-fluid">
     <div class="form-group"></br>
     場所で検索→
     <%= f.label :place_cont, '場所' %>
@@ -14,15 +18,22 @@
     </div>
     </div>
     <%= f.submit '検索', class: 'btn btn-default' %>
+    </div>
 <% end %>
 
 </br>
-検索結果</br>
+<div class="container-fluid">
+<h3 style="background:#f9f9f9; ">検索結果</h3></div>
 </br>
 <% @results.each do |result| %>
+<div class="container-fluid">
+<h4 style="background:#f9f9f9; ">
   場所：<%= result.place %></br>
   時間：<%= result.time %></br>
-  登録者：<%= link_to "#{result.user.name}", "/users/show/#{result.user_id}", method: :get %></br>
-  ================================</br>
+  登録者：<%= link_to "#{result.user.name}", "/users/show/#{result.user_id}", method: :get %>
+  </h1>
+  </div>
+  </br>
 <% end %>
+<%= paginate(@results) %>
 

@@ -62,8 +62,7 @@ class FreetimesController < ApplicationController
   def search
 
     @search = Freetime.ransack(search_params)
-    @results = @search.result.order("time DESC")
-
+    @results = @search.result.order("time DESC").page(params[:page]).per(5)
 
   end
 
@@ -84,7 +83,7 @@ private
   end
 
   def search_params
-    params.require(:q).permit(:place_cont, :time_gteq)
+    params.require(:q).permit(:place_cont, :time_gteq, :page)
   rescue
     { start_time_gteq: Time.zone.now}
 

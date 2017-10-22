@@ -19,5 +19,5 @@ class ApplicationController < ActionController::Base
     meets_path
   end
 
-
 end
+
