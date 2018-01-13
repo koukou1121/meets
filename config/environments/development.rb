@@ -1,17 +1,4 @@
 Rails.application.configure do
-
- # config.action_mailer.default_url_options = { host: localhost, port: 3000}
- # config.action_mailer.delivery_method = :smtp
- #以下のアドレス〜パスワード項目は、メール送信に使うサーバーの値を入力する
- # config.action_mailer.smtp_settings = {
- #   adress: 'smtp.gmail.com',
- #   port: 587,
- #   domain: 'dmtp.gmail.com',
- #   user_name: '<YOUR EMAIL ADRESS>',
- #   password: '<YOUR EMAIL PASSWORD>',
- # }
-
-
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
