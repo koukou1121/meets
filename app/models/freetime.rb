@@ -3,7 +3,7 @@ class Freetime < ActiveRecord::Base
   belongs_to :user
   belongs_to :booking
 
-validates :place, presence: true
+validates :place, length: {maximum: 30 }, presence: true, allow_blank: false
 
 
 private

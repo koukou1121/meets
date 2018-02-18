@@ -1,38 +1,20 @@
-<head>
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?v=3&key= AIzaSyCk0pU5tV5NL2dSIr4M-obWliIT-9w-S2M &language=ja"></script>
-
-</head>
 </br>
 <div class="page-header">
-<h1 style="background:#f9f9f9; ">フレンドを探す</h1></div>
+<h1 style="background:#f9f9f9; ">ローカルフレンドを探す</h1></div>
 </br>
+<h4 style="background:#f9f9f9; ">
 場所と時刻を入力すると、他ユーザーが登録したfreetimeを検索できます</br>
 リスト表示をクリックすると登録されているfreetimeを最新順で表示します</br>
+</h4>
 <%= search_form_for(@search, url: 'search', method: 'get') do |f| %>
     <div class="container-fluid">
     <div class="form-group"></br>
-    場所で検索→
+    <div class="container-fluid">
+  <h4 style="background:#f9f9f9; ">
+    場所で検索↓
+    </h4>
     <%= f.label :place_cont, '場所' %>
     <%= f.text_field :place_cont, class: 'form-control' %>
-
-    <script type="text/javascript">
-function initAutocomplete() {
-    //対応させるテキストボックス
-    var input = document.getElementById('q_place_cont');
-    //プレイスを検索する領域
-    var LatLngFrom = new google.maps.LatLng(35.692195,139.7576653);
-    var LatLngTo   = new google.maps.LatLng(35.696157,139.7525771);
-    var bounds = new google.maps.LatLngBounds(LatLngFrom, LatLngTo);
-    //オートコンプリートのオプション
-    var options = {
-        types: ['(regions)'],                      // 検索タイプ
-        bounds: bounds,                            // 範囲優先検索
-        componentRestrictions: {country: 'jp'}     // 日本国内の住所のみ
-    };
-    autocomplete = new google.maps.places.Autocomplete( input, options);
-}
-</script>
-
     </div>
     <div class="form-group">
     <%= f.label :time_gteq, 'いつからいつまで？' %>
@@ -43,6 +25,7 @@ function initAutocomplete() {
     <%= f.submit '検索', class: 'btn btn-default' %>
     </div>
 <% end %>
+
 </br>
 <div class="container-fluid">
 <h3 style="background:#f9f9f9; ">検索結果</h3></div>
@@ -52,7 +35,8 @@ function initAutocomplete() {
 <h4 style="background:#f9f9f9; ">
   場所：<%= result.place %></br>
   時間：<%= result.time %></br>
-  登録者：<%= link_to "#{result.user.name}", "/users/show/#{result.user_id}", method: :get %>
+  登録者：<%= link_to "#{result.user.name}", "/users/show/#{result.user_id}", method: :get %></br>
+  <%= link_to "オファーを出す", "/bookings/new/#{result.id}", class: 'btn btn-primary btn-lg btn-block', data: { confirm: 'オファーを出しますか？' } %></br>
   </h1>
   </div>
   </br>

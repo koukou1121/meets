@@ -64,6 +64,7 @@ class FreetimesController < ApplicationController
     @search = Freetime.ransack(search_params)
     @results = @search.result.order("time DESC").page(params[:page]).per(5)
 
+
   end
 
 
