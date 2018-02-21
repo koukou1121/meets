@@ -1,28 +1,22 @@
-== README
+This app is constructed by ruby on rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1.version
+rails 4.2.6
+ and with some other gems
 
-Things you may want to cover:
+2.System
+ All users need to register as this app users.
+ Some user as a supplyer send their free time to this app. This app lists them.
+ Some user as a client find supplyer's free time. 
+ If Client sends offer to supplyer, Supplyer reserve the notice
+ 
+3.models
 
-* Ruby version
+*freetimes
+ Constructed user's free time are saved on this.
 
-* System dependencies
+*users
+ Registered all user's including client and supplyer informaton saved on this.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+*bookings
+ Client sent offer to supplyer information saved on this. And this model has relation with freetimes model 
