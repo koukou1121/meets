@@ -12,11 +12,11 @@ This app is constructed by ruby on rails
  
 3.models
 
-*freetimes
- Constructed user's free time are saved on this.
+*freetime
+ User's free time are saved on this.
 
-*users
+*user
  Registered all user's including client and supplyer informaton saved on this.
 
-*bookings
- Client sent offer to supplyer information saved on this. And this model has relation with freetimes model 
+*booking
+ Client sent offer to supplyer information saved on this. And this model has relation with freetimes model.
