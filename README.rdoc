@@ -8,7 +8,7 @@ This app is constructed by ruby on rails
  All users need to register as this app users.
  Some user as a supplyer send their free time to this app. This app lists them.
  Some user as a client find supplyer's free time. 
- If Client sends offer to supplyer, Supplyer reserve the notice
+ If Client sends offer to supplyer, Supplyer recieve the notice
  
 3.models
 
