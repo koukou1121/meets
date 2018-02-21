@@ -1,9 +1,9 @@
 </br>ここからfreetimes/show.html.erbの内容</br>
 ■自分が登録したfreetimesの一覧</br>
 </br>
+<% @freetimes.each do |freetime| %>
 <div class="container-fluid">
 <h1 style="background:#f9f9f9; ">
-<% @freetimes.each do |freetime| %>
   場所：<%= freetime.place %></br>
   時間：<%= freetime.time %></br>
   登録日：<%= freetime.created_at %></br>

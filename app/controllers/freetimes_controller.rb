@@ -14,7 +14,8 @@ class FreetimesController < ApplicationController
 
   def show
 
-    @freetimes = Freetime.where(user_id: current_user.id)
+    @freetimes = Freetime.where(user_id: current_user.id).page(params[:page]).per(5)
+
 
   end
 
