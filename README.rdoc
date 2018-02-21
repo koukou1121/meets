@@ -1,7 +1,7 @@
 This app is constructed by ruby on rails
 
 1.version
-rails 4.2.6
+ rails 4.2.6
  and with some other gems
 
 2.System
