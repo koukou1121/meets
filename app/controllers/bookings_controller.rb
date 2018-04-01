@@ -4,11 +4,12 @@ class BookingsController < ApplicationController
 
  def new
 
-  booking = {}
+  #booking = {}
+  #freetime = {}
   booking = {:freetime_id => params[:id],:client_id => current_user.id }
-  freetime = {:client_id => current_user.id }
+  #freetime = {:id => params[:id], :client_id => current_user.id }
   Booking.create(booking)
-  #Freetime.update(freetime)
+  Freetime.update("id" = params[:id], "client_id" = current_user.id )
 
  end
 

@@ -1,16 +1,27 @@
 </br>ここからfreetimes/edit.html.erbの内容</br>
 </br>
+<div class="container-fluid">
+    <div class="form-group"></br>
+    <div class="container-fluid">
+  <h4 style="background:#f9f9f9; ">
 freetime登録id：<%= @freetime.id %></br>
 登録user名：<%= @freetime.user.name %></br>
 
 <%= form_for @freetime, :url => {:action => 'update'} do |f| %>
+<div class="container-fluid">
+    <div class="form-group"></br>
+    <div class="container-fluid">
+  <h4 style="background:#f9f9f9; ">
   <label class="control-label" >集合場所</label>
   <%= f.text_field :place, value: @freetime.place, placeholder: "場所名を入力してね", class: 'form-control' %></br>
 
-  <label class="control-label" for="">日時</label>
-  <%= f.datetime_select :time, :default => @freetime.time, class: 'form-control' %></br>
+  <label class="control-label" for="">日時</label></br>
+  <%= f.datetime_select :time, :default => @freetime.time, class: 'form-control' %></br></br>
+  <%= f.label :lang, "あなたの使用言語" %></br>
+  <%= f.select :lang, [["未指定", nil], ["英語", 0], ["日本語", 1]], class: "form-control" %></br></br>
 
   <%= f.submit '内容を更新', class: 'btn btn-primary' %>
+  </h4></div>
   <% end %>
 
 

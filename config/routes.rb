@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   get 'freetimes/search' => 'freetimes#search' #freetime検索画面
   get 'users/show/:id' => 'users#show'
   get 'bookings/new/:id' => 'bookings#new'  #オファーの登録
+  delete 'users/retire' => 'users#destroy' #ユーザー退会
 
 end

@@ -3,15 +3,19 @@
 </br>
 <% @freetimes.each do |freetime| %>
 <div class="container-fluid">
-<h1 style="background:#f9f9f9; ">
+<h4 style="background:#f9f9f9; ">
   場所：<%= freetime.place %></br>
   時間：<%= freetime.time %></br>
   登録日：<%= freetime.created_at %></br>
-  登録者id:<%= freetime.user_id %> 登録者名：<%= freetime.user.name %></br>
-  予約者：</br>
+  登録者id：<%= freetime.user_id %>　登録者名：<%= freetime.user.name %></br>
+  予約者id：<%= if freetime.client_id != nil then freetime.client_id else "予約者なし" end %>
+  　予約者名：
+      <%= if freetime.client_id != nil then User.find(freetime.client_id).name
+        else "予約者なし" end %></br>
   <%= link_to "編集", "/freetimes/edit/#{freetime.id}", method: :get %>   <%= link_to "削除", "/freetimes/#{freetime.id}", method: :delete %></br>
-  </h1>
+
   </div>
   ==================================</br>
   <% end %>
  <%= paginate(@freetimes) %>
+ </h4>

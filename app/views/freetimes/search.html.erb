@@ -13,13 +13,17 @@
   <h4 style="background:#f9f9f9; ">
     場所で検索↓
     </h4>
-    <%= f.label :place_cont, '場所' %>
-    <%= f.text_field :place_cont, class: 'form-control' %>
+      <%= f.label :place_cont, '場所' %>
+      <%= f.text_field :place_cont, class: 'form-control' %>
+      <%= f.label :lang_eq, "言語" %></br>
+      <%= f.select :lang_eq, [["指定なし", nil], ["英語", 0], ["日本語", 1]], class: "form-control" %>
     </div>
     <div class="form-group">
     <%= f.label :time_gteq, 'いつからいつまで？' %>
     <div>
-    <%= f.datetime_select :time_gteq, prompt: true %></br>
+    <%= d = Date.today 
+    f.datetime_select :time_gteq, prompt: true, default: Date.new(d.year, d.month, d.mday), :start_year => d.year %>
+    </br>
     </div>
     </div>
     <%= f.submit '検索', class: 'btn btn-default' %>
@@ -31,10 +35,37 @@
 <h3 style="background:#f9f9f9; ">検索結果</h3></div>
 </br>
 <% @results.each do |result| %>
+<!-- 日付確認の処理ここから
+  昔のfreetime投稿であれば表示スキップさせる
+  ページネーションが変になるので、コントローラー側でリストから取り除く方が良い -->
+<% year = result.time.year
+   month = result.time.month 
+   day = result.time.day 
+   now = Date.today
+     if year - now.year < 0 then next end #今年以前であればeachループ1つスキップ
+   if 
+     month - now.month < 0 then next end #今月以前であればeachループ1つスキップ
+   if day - now.day < 0 then next end #今日以前であればeachループ1つスキップ
+   
+    %>
+
+<!-- 日付確認の処理ここまで -->
+<!-- 言語表示の処理ここから -->
+<% lng_nm = result.lang %>
+<% case lng_nm
+when nil then
+  lang = "未指定"
+when 0 then
+  lang = "英語"
+when 1 then
+  lang = "日本語"
+end %>
+<!-- 言語表示の処理ここまで -->
 <div class="container-fluid">
 <h4 style="background:#f9f9f9; ">
   場所：<%= result.place %></br>
-  時間：<%= result.time %></br>
+  日時：<%= result.time %></br>
+  言語：<%= "#{lang}" %> </br>
   登録者：<%= link_to "#{result.user.name}", "/users/show/#{result.user_id}", method: :get %></br>
   <%= link_to "オファーを出す", "/bookings/new/#{result.id}", class: 'btn btn-primary btn-lg btn-block', data: { confirm: 'オファーを出しますか？' } %></br>
   </h1>

@@ -65,7 +65,6 @@ class FreetimesController < ApplicationController
     @search = Freetime.ransack(search_params)
     @results = @search.result.order("time DESC").page(params[:page]).per(5)
 
-
   end
 
 
@@ -73,21 +72,24 @@ class FreetimesController < ApplicationController
 private
 
   def create_params
-    params.require(:freetime).permit(:time, :place).merge(user_id: current_user.id)
+    params.require(:freetime).permit(:time, :place, :lang).merge(user_id: current_user.id)
 
 
   end
 
   def update_params
-    params.require(:freetime).permit(:time, :place)
+    params.require(:freetime).permit(:time, :place, :lang)
 
 
   end
 
   def search_params
-    params.require(:q).permit(:place_cont, :time_gteq, :page)
+    permit_params = params.require(:q).permit(:place_cont, :time_gteq, :lang_eq, :page)
+    permit_params.merge(:flg_eq => nil)  # :flgのnilは未オファーのフラグ
+
+
   rescue
-    { start_time_gteq: Time.zone.now}
+    { start_time_gteq: Time.zone.now }
 
   end
 
@@ -97,15 +99,8 @@ private
 
     else
       redirect_to "users/sign_in"
-
     end
   end
 
+
 end
-
-#  def search
-
-#   freetimes = Freetime.where('place LIKE(?)', "%#{search_params[:place]}%")
-#    @freetimes = freetimes.date_between(search_params[:from_date], search_params[:to_date] )
-
-#  end
