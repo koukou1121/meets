@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
   booking = {:freetime_id => params[:id],:client_id => current_user.id }
   #freetime = {:id => params[:id], :client_id => current_user.id }
   Booking.create(booking)
-  Freetime.update("id" = params[:id], "client_id" = current_user.id )
+  Freetime.find(params[:id]).update(client_id: current_user.id)
 
  end
 
