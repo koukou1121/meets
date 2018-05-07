@@ -16,7 +16,7 @@
       <%= f.label :place_cont, '場所' %>
       <%= f.text_field :place_cont, class: 'form-control' %>
       <%= f.label :lang_eq, "言語" %></br>
-      <%= f.select :lang_eq, [["指定なし", nil], ["英語", 0], ["日本語", 1]], class: "form-control" %>
+      <%= f.select :lang_eq, [["指定なし", nil], ["英語", "en"], ["日本語", "ja"]], class: "form-control" %>
     </div>
     <div class="form-group">
     <%= f.label :time_gteq, 'いつからいつまで？' %>
@@ -54,18 +54,18 @@
 <% lng_nm = result.lang %>
 <% case lng_nm
 when nil then
-  lang = "未指定"
-when 0 then
-  lang = "英語"
-when 1 then
-  lang = "日本語"
+  lang = 'Unspecified'
+when "en" then
+  lang = 'English'
+when "ja" then
+  lang = 'Japanese'
 end %>
 <!-- 言語表示の処理ここまで -->
 <div class="container-fluid">
 <h4 style="background:#f9f9f9; ">
   場所：<%= result.place %></br>
   日時：<%= result.time %></br>
-  言語：<%= "#{lang}" %> </br>
+  言語：<%= t(lang) %> </br>
   登録者：<%= link_to "#{result.user.name}", "/users/show/#{result.user_id}", method: :get %></br>
   <%= link_to "オファーを出す", "/bookings/new/#{result.id}", class: 'btn btn-primary btn-lg btn-block', data: { confirm: 'オファーを出しますか？' } %></br>
   </h1>

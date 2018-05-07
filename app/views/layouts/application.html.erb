@@ -9,6 +9,9 @@ application.html.erbの内容</br>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+<%# I18n.available_locales.reject{|lc| lc == I18n.locale}.each do |locale| %>
+
   <% if user_signed_in? %>
   <div style="background:#f9f9f9; ">
   user: <%= link_to "#{current_user.name}", :controller => "users", :action => "index" %> さんがログイン中｜ログアウトは右のリンクをクリック！ → 
@@ -21,6 +24,8 @@ application.html.erbの内容</br>
   </div>
 
   <% end %>
+<%# end %>
+
 </head>
 
 

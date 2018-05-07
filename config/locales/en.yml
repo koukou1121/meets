@@ -20,4 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  hello : "Hello World"
+  Unspecified : "Unspecified"
+  English : "English"
+  Japanese : "Japanese"
+  send : "Send"
+
+
+
