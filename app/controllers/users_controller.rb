@@ -12,13 +12,14 @@ class UsersController < ApplicationController
 
   end
 
-#  def destroy
+  def destroy
 
-#    user = User.find(params[:id])
-#    if user.user_id == current_user.id
-#      user.destroy
-#      redirect_to '/index'
-
-#  end
+    user = User.find(params[:id])
+    if user.user_id == current_user.id
+      user.destroy
+      redirect_to '/index'
+    end
+    
+  end
 
 end

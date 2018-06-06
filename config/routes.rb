@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-#  scope "(:locale)", locale: /#{I18n.available_locales.map(&:to_s).join('|')}/ do
-#    resources :freetimes
-#    resources :users
-#    resources :bookings
-
-#  end
-
   devise_for :users
   root :controller => 'freetimes', :action => 'index'
   get 'meets' => 'freetimes#index' #トップページ
@@ -19,6 +12,14 @@ Rails.application.routes.draw do
   get 'freetimes/search' => 'freetimes#search' #freetime検索画面
   get 'users/show/:id' => 'users#show'
   get 'bookings/new/:id' => 'bookings#new'  #オファーの登録
+  get 'bookings/show' => 'bookings#show'   #自分がオファーしたfreetime一覧
 #  delete 'users/retire' => 'users#destroy' #ユーザー退会
+
+#  scope "(:locale)" do
+#    resources :freetimes
+#    resources :users
+#    resources :bookings
+
+#  end
 
 end

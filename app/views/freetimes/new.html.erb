@@ -23,7 +23,7 @@
   <%= f.datetime_select :time, class: 'form-control' %></br></br>
   <label class="control-label" for=""></label>
   <%= f.label :lang, "あなたの使用言語" %></br>
-  <%= f.select :lang, [["未指定", nil], ["英語", 0], ["日本語", 1]], class: "form-control" %></br>
+  <%= f.select :lang, [["未指定", nil], ["英語", "en"], ["日本語", "ja"]], class: "form-control" %></br>
   </br>
   <%= f.submit 'freetimeを登録', class: 'btn btn-primary' %></br>
 <% end %>

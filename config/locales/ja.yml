@@ -4,6 +4,18 @@ ja:
   Unspecified : "指定なし"
   English : "英語"
   Japanese : "日本語"
+  SendOffer : "オファーを出す"
+  LoginShite : "ログインまたは新規登録してください"
+  LoginName : "さんがログイン中｜ログアウトは右のリンクをクリック！ "
+  login : "サインアップ"
+  logout : "ログアウト"
+  RegFrt : "freetime登録"
+  SearchFrt : "全てのfreetime検索"
+  ShowFrt : "登録したfreetime一覧"
+  ShowFrtExp : "自分で登録したfreetimeの確認、編集ができます"
+  ShowBookngs : "booking一覧"
+  ShowBookngsExp : "自分がオファーしたbookingの確認、編集ができます"
+
 
   Your speaking language : "あなたの使用言語"
   send : "送信"

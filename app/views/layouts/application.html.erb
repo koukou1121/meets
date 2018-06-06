@@ -10,21 +10,24 @@ application.html.erbの内容</br>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
-<%# I18n.available_locales.reject{|lc| lc == I18n.locale}.each do |locale| %>
-
   <% if user_signed_in? %>
   <div style="background:#f9f9f9; ">
-  user: <%= link_to "#{current_user.name}", :controller => "users", :action => "index" %> さんがログイン中｜ログアウトは右のリンクをクリック！ → 
-  <%= link_to('ログアウト', destroy_user_session_path, method: :delete) %>
+  user: <%= link_to "#{current_user.name}", :controller => "users", :action => "index" %> <%= t('LoginName') %> →
+  <%= link_to( t('logout'), destroy_user_session_path, method: :delete) %>
   </div>
   <% else %>
   <div style="background:#f9f9f9; ">
-  ログインしていないので、ログインしてください→
-  <%= link_to("ログイン", new_user_session_path) %>
-  </div>
+  <%= t('LoginShite') %> →
+  <%= link_to( t('login'), new_user_session_path) %>
 
   <% end %>
-<%# end %>
+<div class = "pull-right">
+<!--言語設定   現在のurl取得→ロケール情報を末尾につけてリンク先に飛ばす-->
+<%= link_to_if params[:locale] != 'en', 'English',  url_for(controller: controller.controller_name, action: controller.action_name, locale: 'en') %> |
+<%= link_to_if params[:locale] != 'ja',  '日本語',  url_for(controller: controller.controller_name, action: controller.action_name, locale: 'ja') %>
+
+  </div>
+  </div>
 
 </head>
 

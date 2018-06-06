@@ -20,11 +20,23 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello : "Hello World"
+
   Unspecified : "Unspecified"
   English : "English"
   Japanese : "Japanese"
-  send : "Send"
-
+  Send : "Send"
+  completed : "completed"
+  SendOffer : "send offer"
+  LoginShite : "Sign up plz! Click here"
+  LoginName : "now Login｜Click here for Logout"
+  login : "Sign up"
+  logout : "Logout"
+  MyPage : "My Page"
+  RegFrt : "Register your freetime"
+  SearchFrt : "Search All freetimes"
+  ShowFrt : "List Your freetimes"
+  ShowFrtExp : "You can check your freetimes and edit them"
+  ShowBookngs : "List Offer you sent"
+  ShowBookngsExp : "You can check Bookings you offered and edit them"
 
 

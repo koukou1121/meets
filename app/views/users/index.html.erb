@@ -1,13 +1,14 @@
-<% I18n.available_locales.reject{|lc| lc == I18n.locale}.each do |locale| %>
+<%# I18n.available_locales.reject{|lc| lc == I18n.locale}.each do |locale| %>
+<!--  -->
 </br>
 ここからはusers/index.html.erbの内容</br>
 <div style="background:#f9f9f9; ">
-★マイページ★</br>
-１. <%= link_to "freetime登録", i18n_url_for(params.merge(locale: locale)), :controller => "freetimes", :action => "new" %>  ⇦自分のfreetime登録</br>
-２. <%= link_to "freetime検索", :controller => "freetimes", :action => "search" %> ⇦他ユーザーが登録したfreetime検索</br>
-３. <%= link_to "freetime一覧・編集", i18n_url_for(params.merge(locale: locale)), :controller => "freetimes", :action => "show" %> ⇦自分で登録したfreetime一覧</br>
-４.booking一覧、編集</br>
+★<%= t('MyPage') %>★</br>
+１. <%= link_to t('RegFrt'), :controller => "freetimes", :action => "new" %>  ⇦自分のfreetime登録</br>
+２. <%= link_to t('SearchFrt'), :controller => "freetimes", :action => "search" %> ⇦他ユーザーが登録したfreetime検索</br>
+３. <%= link_to t('ShowFrt'), :controller => "freetimes", :action => "show" %> ⇦<%= t('ShowFrtExp') %></br>
+４. <%= link_to t('ShowBookngs'), :controller => "bookings", :action => "show" %> ⇦<%= t('ShowBookngsExp') %></br>
 ５.<%# link_to "退会", :controller => "users", :action => "destroy" %> ⇦ユーザー登録の解除 ルーティングとコントローラ未作成！！！！
 </br>
 </br>
-<% end %></div>
+<%# end %></div>

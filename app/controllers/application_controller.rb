@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def default_url_options (options = {})
-    { locale: I18n.locale }.merge options
+    { :locale => I18n.locale }
 
   end
 
@@ -58,7 +58,7 @@ class ApplicationController < ActionController::Base
   # 全リンクに locale 情報をセットする
   # @return [Hash] locale をキーとするハッシュ
   def default_url_options(options = {})
-    { locale: I18n.locale }
+    { locale: I18n.locale }.merge options
   end
 
 
