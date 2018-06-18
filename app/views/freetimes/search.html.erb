@@ -3,30 +3,30 @@
 <h1 style="background:#f9f9f9; ">ローカルフレンドを探す</h1></div>
 </br>
 <h4 style="background:#f9f9f9; ">
-場所と時刻を入力すると、他ユーザーが登録したfreetimeを検索できます</br>
-リスト表示をクリックすると登録されているfreetimeを最新順で表示します</br>
+<%= t('searchExp1') %></br>
+<%= t('searchExp2') %></br>
 </h4>
 <%= search_form_for(@search, url: 'search', method: 'get') do |f| %>
     <div class="container-fluid">
     <div class="form-group"></br>
     <div class="container-fluid">
   <h4 style="background:#f9f9f9; ">
-    場所で検索↓
+    <%= t('MtgPoint') %>↓
     </h4>
-      <%= f.label :place_cont, '場所' %>
+      <%= f.label :place_cont, t('MtgPoint') %>
       <%= f.text_field :place_cont, class: 'form-control' %>
-      <%= f.label :lang_eq, "言語" %></br>
-      <%= f.select :lang_eq, [["指定なし", nil], ["英語", "en"], ["日本語", "jp"]], class: "form-control" %>
+      <%= f.label :lang_eq, t('YrLang') %></br>
+      <%= f.select :lang_eq, [[t('Unspecified'), nil], [t('English'), "en"], [t('Japanese'), "ja"]], class: "form-control" %>
     </div>
     <div class="form-group">
-    <%= f.label :time_gteq, 'いつからいつまで？' %>
+    <%= f.label :time_gteq, t('MtgDate') %>
     <div>
     <%= d = Date.today 
     f.datetime_select :time_gteq, prompt: true, default: Date.new(d.year, d.month, d.mday), :start_year => d.year %>
     </br>
     </div>
     </div>
-    <%= f.submit '検索', class: 'btn btn-default' %>
+    <%= f.submit t('seach'), class: 'btn btn-default' %>
     </div>
 <% end %>
 
@@ -49,11 +49,11 @@ end %>
 <!-- 言語表示の処理ここまで -->
 <div class="container-fluid">
 <h4 style="background:#f9f9f9; ">
-  場所：<%= result.place %></br>
-  日時：<%= result.time %></br>
-  言語：<%= t(lang) %> </br>
-  登録者：<%= link_to "#{result.user.name}", "/users/show/#{result.user_id}", method: :get %></br>
-  <%= link_to t('SendOffer'), "/bookings/new/#{result.id}", class: 'btn btn-primary btn-lg btn-block', data: { confirm: 'オファーを出しますか？' } %></br>
+  <%= t('MtgPoint') %>：<%= result.place %></br>
+  <%= t('MtgDate') %>：<%= result.time %></br>
+  <%= t('Lang') %> </br>
+  <%= t('EvntOwner') %>：<%= link_to "#{result.user.name}", "/users/show/#{result.user_id}", method: :get %></br>
+  <%= link_to t('SendOffer'), "/bookings/new/#{result.id}", class: 'btn btn-primary btn-lg btn-block', data: { confirm: t('Send') } %></br>
   </h1>
   </div>
   </br>

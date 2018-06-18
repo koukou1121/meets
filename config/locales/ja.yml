@@ -1,10 +1,12 @@
 ---
 ja:
 
+  back : "前のページに戻る"
+
+  Lang : "言語"
   Unspecified : "指定なし"
   English : "英語"
   Japanese : "日本語"
-  SendOffer : "オファーを出す"
   LoginShite : "ログインまたは新規登録してください"
   LoginName : "さんがログイン中｜ログアウトは右のリンクをクリック！ "
   login : "サインアップ"
@@ -16,9 +18,25 @@ ja:
   ShowBookngs : "booking一覧"
   ShowBookngsExp : "自分がオファーしたbookingの確認、編集ができます"
 
+  MtgPoint : "集合場所"
+  MtgDate : "集合日時"
+  create : "登録する"
+  YrLang : "あなたの使用言語"
+
+  CreateCompleted : "登録しました!!"
+
+  EntMtgPt : "場所名を入力してちょ"
+  update : "更新する"
+
+  searchExp1 : "場所と時刻を入力すると、他ユーザーが登録したfreetimeを検索できます"
+  searchExp2 : "リスト表示をクリックすると登録されているfreetimeを最新順で表示します"
+  search : "検索検索ぅ♪"
+  EvntOwner : "登録者"
+  SendOffer : "オファーを出す"
+
 
   Your speaking language : "あなたの使用言語"
-  send : "送信"
+  Send : "送信"
 
   activerecord:
     errors:

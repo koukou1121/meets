@@ -14,14 +14,16 @@ application.html.erbの内容</br>
   <div style="background:#f9f9f9; ">
   user: <%= link_to "#{current_user.name}", :controller => "users", :action => "index" %> <%= t('LoginName') %> →
   <%= link_to( t('logout'), destroy_user_session_path, method: :delete) %>
-  </div>
+  
   <% else %>
-  <div style="background:#f9f9f9; ">
+  <div style="background:#f9f9f9;" >
   <%= t('LoginShite') %> →
   <%= link_to( t('login'), new_user_session_path) %>
+  
 
   <% end %>
-<div class = "pull-right">
+
+<div class = "pull-right" >
 <!--言語設定   現在のurl取得→ロケール情報を末尾につけてリンク先に飛ばす-->
 <%= link_to_if params[:locale] != 'en', 'English',  url_for(controller: controller.controller_name, action: controller.action_name, locale: 'en') %> |
 <%= link_to_if params[:locale] != 'ja',  '日本語',  url_for(controller: controller.controller_name, action: controller.action_name, locale: 'ja') %>

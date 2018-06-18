@@ -8,6 +8,9 @@ Bundler.require(*Rails.groups)
 
 module Meets
   class Application < Rails::Application
+    # Use the responders controller from the responders gem
+    config.app_generators.scaffold_controller :responders_controller
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -29,6 +32,9 @@ end
 
 module RailsI18n
   class Application < Rails::Application
+    # Use the responders controller from the responders gem
+    config.app_generators.scaffold_controller :responders_controller
+
     config.i18n.available_locales = %i(en ja)
     config.i18n.enforce_available_locales = true
     config.i18n.default_locale = :en

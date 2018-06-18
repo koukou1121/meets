@@ -21,12 +21,14 @@
 
 en:
 
+  back : "Previous Page"
+
+  Lang : "Language"
   Unspecified : "Unspecified"
   English : "English"
   Japanese : "Japanese"
   Send : "Send"
   completed : "completed"
-  SendOffer : "send offer"
   LoginShite : "Sign up plz! Click here"
   LoginName : "now Login｜Click here for Logout"
   login : "Sign up"
@@ -39,4 +41,19 @@ en:
   ShowBookngs : "List Offer you sent"
   ShowBookngsExp : "You can check Bookings you offered and edit them"
 
+  MtgPoint : "Meeting point"
+  MtgDate : "Meeting Date"
+  create : "Create"
+  YrLang : "Language you speak"
+
+  CreateCompleted : "It has been completed!!"
+
+  EntMtgPt : "Enter the name of place you want"
+  update : "Update"
+
+  searchExp1 : "場所と時刻を入力すると、他ユーザーが登録したfreetimeを検索できます"
+  searchExp2 : "リスト表示をクリックすると登録されているfreetimeを最新順で表示します"
+  search : "Search"
+  EvntOwner : "Created User"
+  SendOffer : "Send Offer!!"
 

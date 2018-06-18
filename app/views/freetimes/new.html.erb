@@ -2,7 +2,7 @@
 
 <div class="container-fluid" style="background:#f9f9f9; ">
 <%= form_for(@freetime) do |f| %>
-  <label class="control-label" >集合場所</label>
+  <label class="control-label" ><%= t('MtgPoint') %></label>
   <%= f.text_field :place, id: 'pac-input', class: ['form-control', 'controls'] %></br>
   <div id="type-selector" class="controls">
     <input type="radio" name="type" id="changetype-all" checked="checked">
@@ -19,13 +19,13 @@
   </div>
   <div id="map"></div>
 
-  <label class="control-label" for="">日時</label></br>
+  <label class="control-label" for=""><%= t('MtgDate') %></label></br>
   <%= f.datetime_select :time, class: 'form-control' %></br></br>
   <label class="control-label" for=""></label>
-  <%= f.label :lang, "あなたの使用言語" %></br>
-  <%= f.select :lang, [["未指定", nil], ["英語", "en"], ["日本語", "ja"]], class: "form-control" %></br>
+  <%= f.label :lang, t('YrLang') %></br>
+  <%= f.select :lang, [[t('Unspecified'), nil], [t('English'), "en"], [t('Japanese'), "ja"]], class: "form-control" %></br>
   </br>
-  <%= f.submit 'freetimeを登録', class: 'btn btn-primary' %></br>
+  <%= f.submit t('create'), class: 'btn btn-primary' %></br>
 <% end %>
 </div>
 
