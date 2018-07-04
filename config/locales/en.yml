@@ -22,6 +22,7 @@
 en:
 
   back : "Previous Page"
+  results : "Results"
 
   Lang : "Language"
   Unspecified : "Unspecified"
@@ -56,4 +57,15 @@ en:
   search : "Search"
   EvntOwner : "Created User"
   SendOffer : "Send Offer!!"
+
+  looking4LF : "Looking for local friends from your destination"
+
+  CreateDate : "Create Date"
+  CreateUser : "Created User"
+  Name       : "Name"
+
+  ErSameName : "Error!! Same User"
+  SendRequest : "You've send the request"
+
+
 

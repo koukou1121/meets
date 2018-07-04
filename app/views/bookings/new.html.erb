@@ -2,7 +2,7 @@ booking/newの画面
 <h4 style="background:#f9f9f9; ">
 
 <% if @offer == false then %>
-投稿者と同一ユーザーのためオファーが出せません！！！
+<%= t('ErSameName') %>
 <% else %>
-オファーを出しました。
+<%= t('SendRequest') %>
 <% end %>

@@ -25,28 +25,8 @@ class BookingsController < ApplicationController
   #モデルを経由して取り出す！！！
   freetime_id = Booking.where(client_id: current_user.id).select(:freetime_id)
   #過去のbookingを除外する
-  freetimes_all = Freetime.where(id: freetime_id)
-    freetimes_all.each do |freetimes_all|
-      #一つでもマイナスが出れば過去
-      y = freetimes_all.time.year - Date.today.year
-      m = freetimes_all.time.month - Date.today.month
-      d = freetimes_all.time.day - Date.today.day
-      jg_pst = y + m + d
-
-      if jg_pst < 0
-        #過去オファーのためスキップする
-
-        else
-
-         @freetimes = freetimes_all
-
-      end
-
-    end
-
-        #過去オファーを除外したfreetimesオブジェクトを返す
-        #orderメソッドやkaminariはモデルじゃないと動かないっぽい？
-        @freetimes.page(params[:page]).per(5)
+  freetimes_all = Freetime.where(id: freetime_id).where("time > ?", Date.today)
+  @freetimes = freetimes_all.page(params[:page]).per(5)
 
 
  end

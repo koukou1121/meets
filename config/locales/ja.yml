@@ -2,6 +2,7 @@
 ja:
 
   back : "前のページに戻る"
+  results : "検索結果"
 
   Lang : "言語"
   Unspecified : "指定なし"
@@ -33,6 +34,15 @@ ja:
   search : "検索検索ぅ♪"
   EvntOwner : "登録者"
   SendOffer : "オファーを出す"
+
+  looking4LF : "ローカルフレンドを探す"
+
+  CreateDate : "登録日時"
+  CreateUser : "登録者"
+  Name       : "名"
+
+  ErSameName : "投稿者と同一ユーザーのためオファーが出せません！！！"
+  SendRequest : "オファーを出しました"
 
 
   Your speaking language : "あなたの使用言語"
