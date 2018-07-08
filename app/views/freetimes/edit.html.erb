@@ -18,7 +18,7 @@ freetime登録id：<%= @freetime.id %></br>
   <label class="control-label" for=""><%= t('MtgDate') %></label></br>
   <%= f.datetime_select :time, :default => @freetime.time, class: 'form-control' %></br></br>
   <%= f.label :lang, t('YrLang') %></br>
-  <%= f.select :lang, [[t('Unspecified'), nil], [t('English'), "en"], [t('Japanese'), "ja"]], class: "form-control" %></br></br>
+  <%= f.select :lang, [[t('Unspecified'), nil], [t('English'), "en"], [t('Japanese'), "ja"]], class: "form-control", value: @freetime.lang %></br></br>
   <%= t('comment') %></br>
   <%= f.text_field :comments, value: @freetime.comments, class: "form-control" %></br></br>
 

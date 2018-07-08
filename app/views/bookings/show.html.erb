@@ -2,8 +2,7 @@ booking/newの画面</br>
 
 <% @freetimes.each do |freetime| %>
 <!-- 言語表示の処理ここから -->
-<% lng_nm = freetime.lang %>
-<% case lng_nm
+<%= case freetime.lang
 when nil then
   lang = 'Unspecified'
 when "en" then
@@ -18,6 +17,7 @@ end %>
   <%= t('MtgDate') %>：<%= freetime.time %></br>
   <%= t('Lang') %>：<%= t(lang) %> </br>
   <%= t('EvntOwner') %>：<%= link_to "#{freetime.user.name}", "/users/show/#{freetime.user_id}", method: :get %></br>
+  <%= t('comment') %>：<%= if freetime.comments != nil then freetime.comments else t('nothing') end %></br>
   freetime_id：<%= freetime.id %> </br>
   </h4>
   </div>

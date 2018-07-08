@@ -8,6 +8,7 @@ ja:
   Unspecified : "指定なし"
   English : "英語"
   Japanese : "日本語"
+
   LoginShite : "ログインまたは新規登録してください"
   LoginName : "さんがログイン中｜ログアウトは右のリンクをクリック！ "
   login : "サインアップ"
@@ -41,6 +42,7 @@ ja:
   CreateDate : "登録日時"
   CreateUser : "登録者"
   Name       : "名"
+  nothing    : "無し"
 
   ErSameName : "投稿者と同一ユーザーのためオファーが出せません！！！"
   SendRequest : "オファーを出しました"

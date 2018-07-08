@@ -2,6 +2,16 @@
 ■自分が登録したfreetimesの一覧</br>
 </br>
 <% @freetimes.each do |freetime| %>
+<!-- 言語表示の処理ここから -->
+<% case freetime.lang
+when nil then
+  lang = 'Unspecified'
+when "en" then
+  lang = 'English'
+when "ja" then
+  lang = 'Japanese'
+end %>
+<!-- 言語表示の処理ここまで -->
 <div class="container-fluid">
 <h4 style="background:#f9f9f9; ">
   <%= t('MtgPoint') %>：<%= freetime.place %></br>
@@ -12,6 +22,8 @@
   　予約者名：
       <%= if freetime.client_id != nil then User.find(freetime.client_id).name
         else "予約者なし" end %></br>
+  <%= t('Lang') %>：<%= t(lang) %> </br>
+  <%= t('comment') %>：<%= if freetime.comments != nil then freetime.comments else t('nothing') end %></br>
   <%= link_to "編集", "/freetimes/edit/#{freetime.id}", method: :get %>   <%= link_to "削除", "/freetimes/#{freetime.id}", method: :delete %></br>
 
   </div>

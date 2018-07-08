@@ -7,27 +7,20 @@
 <%= t('searchExp2') %></br>
 </h4>
 <%= search_form_for(@search, url: 'search', method: 'get') do |f| %>
-    <div class="container-fluid">
     <div class="form-group"></br>
     <div class="container-fluid">
   <h4 style="background:#f9f9f9; ">
-    <%= t('MtgPoint') %>↓
-    </h4>
       <%= f.label :place_cont, t('MtgPoint') %>
       <%= f.text_field :place_cont, class: 'form-control' %>
       <%= f.label :lang_eq, t('YrLang') %></br>
-      <%= f.select :lang_eq, [[t('Unspecified'), nil], [t('English'), "en"], [t('Japanese'), "ja"]], class: "form-control" %>
-    </div>
-    <div class="form-group">
-    <%= f.label :time_gteq, t('MtgDate') %>
-    <div>
+      <%= f.select :lang_eq, [[t('Unspecified'), nil], [t('English'), "en"], [t('Japanese'), "ja"]], class: "form-control" %></br>
+    <%= f.label :time_gteq, t('MtgDate') %></br>
     <%= d = Date.today 
     f.datetime_select :time_gteq, prompt: true, default: Date.new(d.year, d.month, d.mday), :start_year => d.year %>
-    </br>
+    </br></br>
+    <%= f.submit t('search'), class: 'btn btn-primary' %></br></br>
     </div>
-    </div>
-    <%= f.submit t('search'), class: 'btn btn-default' %>
-    </div>
+    </h4>
 <% end %>
 
 </br>
@@ -37,8 +30,7 @@
 <% @results.each do |result| %>
 
 <!-- 言語表示の処理ここから -->
-<% lng_nm = result.lang %>
-<% case lng_nm
+<% case result.lang
 when nil then
   lang = 'Unspecified'
 when "en" then
@@ -51,10 +43,11 @@ end %>
 <h4 style="background:#f9f9f9; ">
   <%= t('MtgPoint') %>：<%= result.place %></br>
   <%= t('MtgDate') %>：<%= result.time %></br>
-  <%= t('Lang') %> </br>
+  <%= t('Lang') %>：<%= t(lang) %> </br>
   <%= t('EvntOwner') %>：<%= link_to "#{result.user.name}", "/users/show/#{result.user_id}", method: :get %></br>
-  <%= link_to t('SendOffer'), "/bookings/new/#{result.id}", class: 'btn btn-primary btn-lg btn-block', data: { confirm: t('Send') } %></br>
-  </h1>
+  <%= t('comment') %>：<%= result.comments %></br>
+  <%= link_to t('SendOffer'), "/bookings/new/#{result.id}", class: 'btn btn-success', data: { confirm: t('Send') } %></br>
+  </h4>
   </div>
   </br>
 <% end %>

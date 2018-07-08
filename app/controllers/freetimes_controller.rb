@@ -14,7 +14,7 @@ class FreetimesController < ApplicationController
 
   def show
 
-    @freetimes = Freetime.where(user_id: current_user.id).page(params[:page]).per(5)
+    @freetimes = Freetime.where(user_id: current_user.id).order("time DESC").page(params[:page]).per(5)
 
 
   end
@@ -64,7 +64,7 @@ class FreetimesController < ApplicationController
   def search
 
     @search = Freetime.ransack(search_params)
-    @results = @search.result.order("time DESC").page(params[:page]).per(5)
+    @results = @search.result.where("time > ?", Date.today).order("time ASC").page(params[:page]).per(5)
 
   end
 
