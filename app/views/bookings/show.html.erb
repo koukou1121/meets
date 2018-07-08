@@ -1,0 +1,25 @@
+booking/newの画面</br>
+
+<% @freetimes.each do |freetime| %>
+<!-- 言語表示の処理ここから -->
+<% lng_nm = freetime.lang %>
+<% case lng_nm
+when nil then
+  lang = 'Unspecified'
+when "en" then
+  lang = 'English'
+when "ja" then
+  lang = 'Japanese'
+end %>
+<!-- 言語表示の処理ここまで -->
+<div class="container-fluid">
+<h4 style="background:#f9f9f9; ">
+  <%= t('MtgPoint') %>：<%= freetime.place %></br>
+  <%= t('MtgDate') %>：<%= freetime.time %></br>
+  <%= t('Lang') %>：<%= t(lang) %> </br>
+  <%= t('EvntOwner') %>：<%= link_to "#{freetime.user.name}", "/users/show/#{freetime.user_id}", method: :get %></br>
+  freetime_id：<%= freetime.id %> </br>
+  </h4>
+  </div>
+<% end %>
+<%= paginate(@freetimes) %>

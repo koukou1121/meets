@@ -46,6 +46,7 @@ en:
   MtgDate : "Meeting Date"
   create : "Create"
   YrLang : "Language you speak"
+  comment : "Comment"
 
   CreateCompleted : "It has been completed!!"
 

@@ -28,6 +28,7 @@ class FreetimesController < ApplicationController
   def update
 
     freetime = Freetime.find(params[:id])
+
     if freetime.user_id == current_user.id
       freetime.update(update_params)
 
@@ -49,7 +50,7 @@ class FreetimesController < ApplicationController
 
   def list
     keyword = params[:search]
-    @client = GooglePlace::Client.new( ENV['AIzaSyDEVU-3St37jrM9wBc_rFxzjKsXXBpKcTM'])
+    @client = GooglePlace::Client.new( ENV['AIzaSyDah7UibzmNynUBiC42rViUL--kkCdoHDo'])
     @places = @client.spots_by_query( keyword )
 
   end
@@ -72,13 +73,14 @@ class FreetimesController < ApplicationController
 private
 
   def create_params
-    params.require(:freetime).permit(:time, :place, :lang).merge(user_id: current_user.id)
+    params.require(:freetime).permit(:time, :place, :lang, :comments).merge(user_id: current_user.id)
+
 
 
   end
 
   def update_params
-    params.require(:freetime).permit(:time, :place, :lang)
+    params.require(:freetime).permit(:time, :place, :lang, :comments)
 
 
   end

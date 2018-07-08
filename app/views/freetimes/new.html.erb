@@ -25,6 +25,9 @@
   <%= f.label :lang, t('YrLang') %></br>
   <%= f.select :lang, [[t('Unspecified'), nil], [t('English'), "en"], [t('Japanese'), "ja"]], class: "form-control" %></br>
   </br>
+  <%= t('comment') %></br>
+  <%= f.text_field :comments, class: 'form-control' %></br>
+  </br>
   <%= f.submit t('create'), class: 'btn btn-primary' %></br>
 <% end %>
 </div>
@@ -73,7 +76,7 @@
   }
 </style>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDah7UibzmNynUBiC42rViUL--kkCdoHDo&libraries=places&callback=initMap" async defer></script>
 <script>
   // This example requires the Places library. Include the libraries=places
   // parameter when you first load the API. For example:

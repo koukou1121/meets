@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180408043617) do
+ActiveRecord::Schema.define(version: 20180708040722) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "freetime_id", limit: 4
@@ -25,11 +25,12 @@ ActiveRecord::Schema.define(version: 20180408043617) do
     t.integer  "client_id",  limit: 4
     t.datetime "time"
     t.string   "place",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.integer  "limitnum",   limit: 4
     t.string   "lang",       limit: 255
     t.integer  "flg",        limit: 4
+    t.text     "comments",   limit: 65535
   end
 
   create_table "users", force: :cascade do |t|
