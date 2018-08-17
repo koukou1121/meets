@@ -3,7 +3,10 @@ class Freetime < ActiveRecord::Base
   belongs_to :user
   belongs_to :booking
 
-validates :place, length: {maximum: 30 }, presence: true, allow_blank: false
+validates :place, length: {maximum: 50 }, presence: true, allow_blank: false
+
+geocoded_by :place
+after_validation :geocode, if: :adress_changed?
 
 
 private
@@ -22,5 +25,7 @@ scope :date_between, -> from, to {
       where('time <= ?', to)
     end
   }
+
+
 
 end

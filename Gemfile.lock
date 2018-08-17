@@ -64,6 +64,7 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.7.0)
+    geocoder (1.4.9)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     google_places (0.34.1)
@@ -200,6 +201,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  geocoder
   google_places
   jbuilder (~> 2.0)
   jquery-rails

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180708074322) do
+ActiveRecord::Schema.define(version: 20180708094334) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "freetime_id", limit: 4
@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 20180708074322) do
     t.string   "lang",       limit: 255
     t.integer  "flg",        limit: 4
     t.text     "comments",   limit: 65535
+    t.float    "latitude",   limit: 24
+    t.float    "longitude",  limit: 24
+    t.text     "adress",     limit: 65535
   end
 
   create_table "users", force: :cascade do |t|

@@ -76,7 +76,7 @@
   }
 </style>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR-API-KEY&libraries=places&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDah7UibzmNynUBiC42rViUL--kkCdoHDo&libraries=places&callback=initMap" async defer></script>
 <script>
   // This example requires the Places library. Include the libraries=places
   // parameter when you first load the API. For example:
@@ -87,6 +87,7 @@
       center: {lat: -33.8688, lng: 151.2195},
       zoom: 13
     });
+
     var input = /** @type {!HTMLInputElement} */(
         document.getElementById('pac-input'));
 
@@ -108,6 +109,7 @@
       marker.setVisible(false);
       var place = autocomplete.getPlace();
       if (!place.geometry) {
+        // User entered the name of a Place that was not suggested and
         // User entered the name of a Place that was not suggested and
         // pressed the Enter key, or the Place Details request failed.
         window.alert("No details available for input: '" + place.name + "'");
@@ -157,5 +159,7 @@
     setupClickListener('changetype-address', ['address']);
     setupClickListener('changetype-establishment', ['establishment']);
     setupClickListener('changetype-geocode', ['geocode']);
+
   }
+
 </script>

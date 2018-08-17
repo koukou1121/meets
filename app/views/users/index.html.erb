@@ -8,7 +8,9 @@
 ２. <%= link_to t('SearchFrt'), :controller => "freetimes", :action => "search" %> ⇦他ユーザーが登録したfreetime検索</br>
 ３. <%= link_to t('ShowFrt'), :controller => "freetimes", :action => "show" %> ⇦<%= t('ShowFrtExp') %></br>
 ４. <%= link_to t('ShowBookngs'), :controller => "bookings", :action => "show" %> ⇦<%= t('ShowBookngsExp') %></br>
-５.<%# link_to "退会", :controller => "users", :action => "destroy" %> ⇦ユーザー登録の解除 ルーティングとコントローラ未作成！！！！
+５.<%# link_to "退会", :controller => "users", :action => "destroy" %> ⇦ユーザー登録の解除 ルーティングとコントローラ未作成！！！！</br>
+６．<%= link_to 'ShowWithMap', :controller => "freetimes", :action => "show_with_map" %>　⇦
+freetimeのgoogle map上への表示テスト
 </br>
 </br>
 <%# end %></div>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root :controller => 'freetimes', :action => 'index'
   get 'meets' => 'freetimes#index' #トップページ
   get 'users' => 'users#index' #マイページ
+  get 'freetimes/show_with_map' => 'freetimes#show_with_map'#freetimeのgooglemapへの表示
   get 'freetimes/new' => 'freetimes#new' #freetime登録画面
   get 'freetimes/show' => 'freetimes#show' #登録したfreetime一覧表示
   get 'freetimes/edit/:id' => 'freetimes#edit' #登録したfreetimeの編集

@@ -58,6 +58,7 @@ class FreetimesController < ApplicationController
   def create
 
     Freetime.create(create_params)
+    binding.pry
 
   end
 
@@ -68,7 +69,20 @@ class FreetimesController < ApplicationController
 
   end
 
+  def show_with_map
 
+    @freetimes = Freetime.where("time > ?", Date.today)
+
+    respond_to do |format|
+      format.html
+      format.xml{
+      render :text => @freetimes.to_xml(
+        :only=>[:place, :latitude, :longitude, :id],
+        :root => "name")
+    }
+   end
+
+  end
 
 private
 
